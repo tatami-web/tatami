@@ -13,6 +13,7 @@ body {
     align-items: center;
     text-align: center;
     min-height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+    outline: none;
 }
 
 .logo:hover {
@@ -28,7 +29,7 @@ body {
 }
 
 .logo-container {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .logo {
@@ -40,6 +41,7 @@ body {
     cursor: pointer;
     outline: none; /* Elimina el cuadro azul */
     margin-bottom: 30px; /* Espacio inferior para separación */
+    outline: none;
 }
 
 /* Contenedor para enlaces */
@@ -105,6 +107,7 @@ body {
    margin-bottom: 15px; /* Espacio inferior para separación con el párrafo */
    font-size: 1.8em;
    color: #b1b1b1;
+   margin: 20px;
 }
 
 .description p {
@@ -114,19 +117,26 @@ body {
 }
 
 footer {
-   position: fixed;
-   bottom: 0;
-   width: calc(100% - 20px); /* Ajuste del ancho para evitar desbordamiento */
-   padding: 15px;
-   color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 20px); /* Ajuste del ancho para evitar desbordamiento */
+    padding: 20px;
+    font-size: 1em;
+ }
+ 
+ .footer-a {
+    color: #00ffcc;
    font-size: 1em;
+   text-decoration: none;
+   transition: color 0.2s ease-in-out; /* Agrega una transición suave */
+   z-index: -1; /* Agregar esto */
 }
 
-.footer-a {
-   color: #f0f0f0;
-   font-size: 1.2em;
-   text-decoration: none;
+.footer-a:hover {
+    color:#b1b1b1; /* Cambia el color al pasar el puntero */
 }
+
+ 
 
 /* Diseño responsivo */
 @media (max-width: 768px) {
@@ -139,7 +149,7 @@ footer {
 
    .header h1 {
        font-size: 2.3em; /* Tamaño de fuente más pequeño en pantallas pequeñas */
-       margin-bottom: 20px; /* Espacio inferior para separación */
+       margin-bottom: 10px; /* Espacio inferior para separación */
    }
 
    .logo {
@@ -161,17 +171,26 @@ footer {
 
 .links a {
     display: block; /* Asegura que los botones se comporten como bloques */
-    font-size: 1em; /* Tamaño de fuente para botones */
-    padding: 10px 15px; /* Espaciado interno */
-    margin: 15px; /* Elimina márgenes innecesarios */
-    width: 90% 0; /* Ajusta el ancho al 80% del contenedor */
-    text-align: center; /* Centra el texto dentro de los botones */
+    font-size: 1.2em; /* Mantiene el tamaño de fuente de escritorio */
+    padding: 10px 20px; /* Espaciado interno */
+    margin: 15px 0; /* Espaciado entre botones */
+    width: 10% 0; /* Botones adaptables al ancho disponible */
+    text-align: center; /* Centra el texto */
     border-radius: 5px; /* Bordes redondeados */
     text-decoration: none; /* Quita el subrayado */
+    background-color: #00ffcc; /* Color de fondo del botón */
+    color: #000000; /* Color del texto */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
 }
 
- 
- 
+.links a:hover {
+    background-color: #a8a8a8; /* Color al pasar el ratón sobre el botón */
+}
+
+.links a:active {
+    background-color: #007f7f; /* Color cuando se presiona el botón */
+    transform: scale(0.95); /* Efecto de escala al presionar */
+}
    .description-container {
        margin-top: 20px; /* Espacio superior para separación con los enlaces */ 
        padding: 10px; /* Espaciado interno adicional para el contenedor de descripción */ 
