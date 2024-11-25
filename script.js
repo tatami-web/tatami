@@ -17,3 +17,23 @@ if (isTouchDevice) {
 } else {
     logo.addEventListener('mouseover', animateLogo);
 }
+
+let lastScrollPosition = 0;
+const footer = document.querySelector('footer');
+
+// Escucha el evento de scroll
+window.addEventListener('scroll', () => {
+    const currentScrollPosition = window.pageYOffset;
+
+    // Si desplazamos hacia abajo, oculta el footer
+    if (currentScrollPosition > lastScrollPosition) {
+        footer.classList.add('hidden');
+    } 
+    // Si desplazamos hacia arriba, muestra el footer
+    else {
+        footer.classList.remove('hidden');
+    }
+
+    // Actualiza la posición del scroll
+    lastScrollPosition = currentScrollPosition;
+});
