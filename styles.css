@@ -12,8 +12,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
- /*    min-height: 100vh;
-    overflow: hidden; Evita desplazamiento en PC */
+    min-height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
 }
 
 .logo:hover {
@@ -33,90 +32,160 @@ body {
 }
 
 .logo {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6);
-    transition: transform 0.6s ease;
+    transition: transform 0.6s ease, box-shadow 0.3s ease; /* Añadido efecto de sombra */
     cursor: pointer;
     outline: none; /* Elimina el cuadro azul */
-    will-change: transform;
+    margin-bottom: 30px; /* Espacio inferior para separación */
+}
+
+/* Contenedor para enlaces */
+.links-container {
+    display: flex; /* Flexbox para disposición en fila */
+    justify-content: center; /* Centra los enlaces horizontalmente */
+    flex-wrap: wrap; /* Permite que los enlaces se envuelvan en pantallas pequeñas */
+    gap: 15px; /* Agrega espacio entre los enlaces */
 }
 
 /* Estilos de los enlaces */
 .links a {
-    color: #00ffcc;
+    background-color: #00ffcc; /* Color de fondo definido para los enlaces */
+    color: #000000; /* Color del texto en los enlaces */
     text-decoration: none;
     font-size: 1.2em;
     font-weight: bold;
-    transition: color 0.3s, transform 0.2s;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+    padding: 10px 20px; /* Espaciado interno para botones */
+    border-radius: 5px; /* Bordes redondeados para mejor apariencia */
 }
 
-/* Efecto de cambio de color y escala al pasar el puntero */
 .links a:hover {
-    color: #a8a8a8;
-    transform: scale(1.1);
+    background-color: #a8a8a8; /* Color al pasar el ratón sobre el enlace */
+}
+
+.links a:active {
+   background-color: #007f7f; /* Color diferente al presionar el enlace */
+   transform: scale(0.95); /* Efecto de escala al presionar */
 }
 
 /* Animación de pulso persistente para dispositivos móviles */
 @media (hover: none) {
-    .links a {
-        animation: pulse 1.5s infinite;
-    }
+   .links a {
+       animation: pulse 1.5s infinite;
+       background-color: rgba(255, 255, 255, 0.1); /* Fondo en dispositivos móviles */
+       border-radius: 5px; /* Bordes redondeados */
+       padding: 10px; /* Espaciado */
+       margin-bottom: 5px; /* Espaciado entre enlaces */
+       text-align: center; /* Centrar texto en enlaces */
+   }
 }
 
 @keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
+   0%, 100% {
+       transform: scale(1);
+   }
+   
+   50% {
+       transform: scale(1.05);
+   }
 }
 
-.description {
-    max-width: 600px;
-    padding: 20px;
-    margin-top: 20px;
+/* Contenedor para la descripción */
+.description-container {
+   max-width: 600px;
+   padding: 20px;
+   margin-top: 20px; 
 }
 
+/* Estilos de la descripción */
 .description h2 {
-    font-size: 1.8em;
-    color: #b1b1b1;
-    margin-bottom: 0;
+   margin-bottom: 15px; /* Espacio inferior para separación con el párrafo */
+   font-size: 1.8em;
+   color: #b1b1b1;
 }
 
 .description p {
-    font-size: 1.1em;
-    line-height: 1.6em;
-    color: #f0f0f0;
+   font-size: 1.1em;
+   line-height: 1.6em;
+   color: #f0f0f0;
 }
 
-.footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    margin-top: 5px;
-    padding: 2px;
-    color: #ffffff;
-    font-size: 1em;
-    background-color: #2b2b2b11; /* Agrega un fondo para que se vea mejor */
+footer {
+   position: fixed;
+   bottom: 0;
+   width: calc(100% - 20px); /* Ajuste del ancho para evitar desbordamiento */
+   padding: 15px;
+   color: #ffffff;
+   font-size: 1em;
 }
 
+.footer-a {
+   color: #f0f0f0;
+   font-size: 1.2em;
+   text-decoration: none;
+}
 
 /* Diseño responsivo */
 @media (max-width: 768px) {
-    .logo {
-        width: 220px;
-        height: 220px;
+    
+   body {
+       flex-direction: column; /* Cambia el cuerpo a modo columna */
+       align-items: center; /* Centra todos los elementos */
+       padding-bottom: calc(50px + env(safe-area-inset-bottom)); /* Asegura que no se superponga con el footer en móviles con notch */
+   }
+
+   .header h1 {
+       font-size: 2.3em; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+       margin-bottom: 20px; /* Espacio inferior para separación */
+   }
+
+   .logo {
+       width: auto; /* Ajustar tamaño de logo en pantallas pequeñas manteniendo proporciones */
+       max-width: 200px; /* Limitar tamaño máximo del logo */
+       height:auto; 
+       margin-bottom: 30px; /* Espacio inferior para separación */
+   }
+
+   .links-container {
+    display: flex; /* Usa Flexbox */
+    flex-direction: column; /* Coloca los botones en columna */
+    align-items: center; /* Centra horizontalmente el contenedor */
+    justify-content: center; /* Centra verticalmente el contenido */
+    gap: 15px; /* Espaciado uniforme entre botones */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    margin-top: 20px; /* Espacio superior */
+}
+
+.links a {
+    display: block; /* Asegura que los botones se comporten como bloques */
+    font-size: 1em; /* Tamaño de fuente para botones */
+    padding: 10px 15px; /* Espaciado interno */
+    margin: 15px; /* Elimina márgenes innecesarios */
+    width: 90% 0; /* Ajusta el ancho al 80% del contenedor */
+    text-align: center; /* Centra el texto dentro de los botones */
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none; /* Quita el subrayado */
+}
+
+ 
+ 
+   .description-container {
+       margin-top: 20px; /* Espacio superior para separación con los enlaces */ 
+       padding: 10px; /* Espaciado interno adicional para el contenedor de descripción */ 
+       width: 80%; /* Hacer que la descripción ocupe un porcentaje del ancho disponible */ 
+   }
+
+   .description h2 {
+       font-size: 1.9em; /* Tamaño de fuente más pequeño en pantallas pequeñas */ 
+       margin-bottom: 10px; /* Espacio inferior para separación con el párrafo */ 
+       padding: 15px;
     }
 
-    .description {
-        padding: 20px;
-    }
+   .description p {
+       font-size: 1.3em; /* Tamaño de fuente más pequeño en pantallas pequeñas */ 
+       line-height: 1.4em; /* Ajustar el interlineado para mejor legibilidad */ 
+   }
 }
