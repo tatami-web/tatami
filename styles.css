@@ -1,25 +1,20 @@
-* {
+/* Estilos generales para el cuerpo */
+body {
     margin: 0;
     padding: 0;
-   /* box-sizing: border-box;*/
-}
-
-body {
     font-family: Courier, monospace;
     background-color: #0d0d0d;
     color: #ffffff;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Asegura que el contenido fluya verticalmente */
+    align-items: center; /* Centra horizontalmente los elementos */
     text-align: center;
- /*    min-height: 100vh; Asegura que el body ocupe toda la altura de la ventana */
+    min-height: 100vh; /* Asegura que el cuerpo ocupe toda la altura del viewport */
     outline: none;
+    overflow-y: auto; /* Permite el scroll vertical */
 }
 
-/*.logo:hover {
-    box-shadow: 0px 0px 40px #c0c0c0;
-}
-*/
+/* Estilos del encabezado */
 .header h1 {
     font-size: 3em;
     color: #00ffcc;
@@ -28,6 +23,7 @@ body {
     letter-spacing: 1px;
 }
 
+/* Estilos del logo */
 .logo-container {
     margin-top: 30px;
 }
@@ -35,229 +31,116 @@ body {
 .logo {
     width: 200px;
     height: 200px;
-    border-radius: 50%;
- /*   box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6);*/
-    transition: transform 0.6s ease, box-shadow 0.3s ease; /* Añadido efecto de sombra */
+    border-radius: 50%; /* Hace que el logo sea circular */
+    transition: transform 0.6s ease-in-out; /* Suaviza la animación del logo */
     cursor: pointer;
-    outline: none; /* Elimina el cuadro azul */
-    margin-bottom: 30px; /* Espacio inferior para separación */
-    outline: none;
+    margin-bottom: 30px;
 }
 
-/* Contenedor para enlaces */
+/* Contenedor de enlaces */
 .links-container {
-    display: flex; /* Flexbox para disposición en fila */
-    justify-content: center; /* Centra los enlaces horizontalmente */
-    flex-wrap: wrap; /* Permite que los enlaces se envuelvan en pantallas pequeñas */
-    gap: 15px; /* Agrega espacio entre los enlaces */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que los enlaces se ajusten en pantallas pequeñas */
+    gap: 15px; /* Espaciado entre enlaces */
 }
 
-/* Estilos de los enlaces */
+/* Botones o enlaces */
 .links a {
-    background-color: #00ffcc; /* Color de fondo definido para los enlaces */
-    color: #000000; /* Color del texto en los enlaces */
-    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1.2em;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
-    padding: 10px 20px; /* Espaciado interno para botones */
-    border-radius: 5px; /* Bordes redondeados para mejor apariencia */
+    padding: 12px 20px;
+    width: 70%;
+    max-width: 400px;
+    margin: 15px auto;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    background-color: #00ffcc;
+    color: #000000;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .links a:hover {
-    background-color: #3f3f3f; /* Color al pasar el ratón sobre el botón */
+    background-color: #3f3f3f;
+    color: #ffffff;
 }
 
 .links a:active {
-    background-color: #3f3f3f; /* Color al pasar el ratón sobre el botón */
-   transform: scale(0.95); /* Efecto de escala al presionar */
+    background-color: #007f7f;
+    transform: scale(0.95);
 }
 
-/* Animación de pulso persistente para dispositivos móviles */
-@media (hover: none) {
-   .links a {
-       animation: pulse 1.5s infinite;
-       background-color: #00ffcc; /* Color de fondo del botón */
-       border-radius: 5px; /* Bordes redondeados */
-       padding: 10px; /* Espaciado */
-       margin-bottom: 5px; /* Espaciado entre enlaces */
-       text-align: center; /* Centrar texto en enlaces */
-   }
-}
-
-@keyframes pulse {
-   0%, 100% {
-       transform: scale(1);
-   }
-   
-   50% {
-       transform: scale(1.05);
-   }
-}
-
-/* Contenedor para la descripción */
+/* Contenedor de descripción */
 .description-container {
-   max-width: 600px;
-   padding: 20px;
-   margin-top: 20px; 
+    max-width: 600px;
+    padding: 20px;
+    margin-top: 20px;
 }
 
-/* Estilos de la descripción */
 .description h2 {
-   margin-bottom: 15px; /* Espacio inferior para separación con el párrafo */
-   font-size: 1.8em;
-   color: #b1b1b1;
-   margin: 20px;
+    font-size: 1.8em;
+    color: #b1b1b1;
+    margin-bottom: 15px;
 }
 
 .description p {
-   font-size: 1.1em;
-   line-height: 1.6em;
-   color: #f0f0f0;
+    font-size: 1.1em;
+    line-height: 1.6em;
+    color: #f0f0f0;
 }
 
+/* Estilos del footer */
 footer {
     position: fixed;
     bottom: 0;
-    width: calc(100% - 20px); /* Ajuste del ancho para evitar desbordamiento */
+    width: calc(100% - 20px);
     padding: 15px;
     font-size: 1em;
     background-color: #0d0d0d;
-    transition: transform 0.3s ease-in-out; /* Transición para ocultar y mostrar */
+    transition: transform 0.3s ease-in-out;
 }
 
+/* Clase para ocultar el footer */
 footer.hidden {
-    transform: translateY(100%); /* Mueve el footer fuera de la pantalla */
+    transform: translateY(100%); /* Oculta el footer fuera de la pantalla */
+    transition: transform 0.3s ease-in-out; /* Suaviza la transición al ocultar/mostrar */
 }
 
+
+/* Enlaces dentro del footer */
 .footer-a {
     color: #00ffcc;
     font-size: 1.2em;
     text-decoration: none;
-    transition: color 0.2s ease-in-out; /* Transición suave para los enlaces */
+    transition: color 0.2s ease-in-out;
 }
 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Diseño responsivo */
+/* Estilos responsivos */
 @media (max-width: 770px) {
     body {
-        flex-direction: column; /* Cambia el cuerpo a modo columna */
-        align-items: center; /* Centra todos los elementos */
-        padding-bottom: calc(50px + env(safe-area-inset-bottom)); /* Asegura que no se superponga con el footer en móviles con notch */
-        margin: 8px;
+        padding-bottom: calc(50px + env(safe-area-inset-bottom));
     }
 
     .header h1 {
-        font-size: 2.3em; /* Tamaño de fuente más pequeño en pantallas pequeñas */
-        margin-bottom: 10px; /* Espacio inferior para separación */
+        font-size: 2.3em;
     }
 
     .logo {
-        width: auto; /* Ajustar tamaño de logo en pantallas pequeñas manteniendo proporciones */
-        max-width: 200px; /* Limitar tamaño máximo del logo */
-        height: auto;
-        margin-bottom: 30px; /* Espacio inferior para separación */
+        max-width: 200px;
     }
-
-/* Estilos principales para centrar los botones */
-.links-container {
-    display: flex; /* Usa Flexbox para el contenedor */
-    flex-direction: column; /* Coloca los botones en una columna */
-    align-items: center; /* Centra horizontalmente los elementos */
-    justify-content: center; /* Centra verticalmente el contenido */
-    gap: 15px; /* Espaciado uniforme entre los botones */
-    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
-    height: 100%; /* Asegura que el contenedor ocupe toda la altura del espacio asignado */
-    padding: 0 20px; /* Espaciado interno para evitar que los botones se peguen al borde */
-    box-sizing: border-box; /* Incluye padding y borde dentro de las dimensiones */
 }
 
-.links a {
-    display: flex; /* Asegura una disposición flexible */
-    justify-content: center; /* Centra el texto horizontalmente */
-    align-items: center; /* Centra el texto verticalmente */
-    font-size: 1.2em; /* Tamaño de fuente consistente */
-    padding: 12px 20px; /* Espaciado interno para los botones */
-    width: 70%; /* Ajusta el ancho del botón al 70% del contenedor */
-    max-width: 400px; /* Evita que los botones sean demasiado grandes en pantallas amplias */
-    margin: 15px auto; /* Centra los botones dentro del contenedor */
-    text-align: center; /* Asegura que el texto esté centrado */
-    border-radius: 8px; /* Bordes redondeados */
-    text-decoration: none; /* Quita el subrayado del texto */
-    background-color: #00ffcc; /* Color de fondo del botón */
-    color: #000000; /* Color del texto */
-    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves para hover */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Añade sombra para un efecto visual */
-}
-
-.links a:hover {
-    background-color: #3f3f3f; /* Color al pasar el ratón sobre el botón */
-    color: #ffffff; /* Cambia el color del texto */
-}
-
-.links a:active {
-    background-color: #007f7f; /* Color cuando se presiona el botón */
-    transform: scale(0.95); /* Efecto de escala al presionar */
-}
-
-.description h2 {
-    font-size: 2em; /* Tamaño de fuente más pequeño en pantallas pequeñas */
-    margin-bottom: 10px; /* Espacio inferior para separación con el párrafo */
-    padding: 15px;
-}
-
-.description p {
-    font-size: 1.4em; /* Tamaño de fuente más pequeño en pantallas pequeñas */
-    line-height: 1.4em; /* Ajustar el interlineado para mejor legibilidad */
-}
-
-/* Media Query para pantallas pequeñas */
 @media (max-width: 480px) {
-    body {
-        margin: 8px;
-    }
-
-    }
     .description h2 {
-        font-size: 2em; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        font-size: 2em;
     }
 
     .description p {
-        font-size: 1.3em; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        font-size: 1.3em;
+        margin: 15px;
     }
-
-
 }
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
