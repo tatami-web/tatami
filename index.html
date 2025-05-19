@@ -4,40 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
-    <title>Tatami</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Icono personalizado -->
+    <link rel="icon" href="assets/Tatamiweb-logo.png" type="Tatamiweb-logo.png">
+    <title>Tatami-web</title>
+
 </head>
 
 <body>
-    <!-- Título de la empresa -->
-    <header class="header">
-        <h1>Tatami</h1>
-    </header>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('links')">Error Reporting Guide</div>
+            <div class="tab" onclick="showTab('history')">History & Extensions</div>
+        </div>
+        <div class="content-wrapper" id="contentWrapper">
+            <div id="links" class="tab-content active">
+                <div class="links">
+                    <h2>Error Reporting Guide</h2>
+                    <img src="assets/01.gif"
+                        alt="Example GIF for error reporting">
+                    <div class="link-container">
+                        <a href="mailto:tatamiweb@proton.me">tatamiweb@proton.me</a>
+                    </div>
+                    <div class="link-container">
+                        <a target="_blank"
+                            href="https://addons.mozilla.org/es/firefox/user/18240851/?utm_source=firefox-browser&utm_medium=firefox-browser&utm_content=addons-manager-user-profile-link">addons.mozilla</a>
+                    </div>
+                    <div class="link-container">
+                        <a target="_blank" href="https://www.uptodown.com/developer/tatami">uptodown</a>
+                    </div>
+                    <div class="link-container">
+                        <a target="_blank" href="/">Tatami-web</a>
+                    </div>
+                    <p>To report an error or submit a request, please include the following details in your email:</p>
+                    <ul>
+                        <li><strong>Project:</strong> Specify the project name (e.g., My IP).</li>
+                        <li><strong>Error Description:</strong> Detail what happened and how to reproduce it.</li>
+                        <li><strong>Environment:</strong> Indicate the operating system, browser, or device used.</li>
+                        <li><strong>Attachments:</strong> If possible, attach screenshots or videos.</li>
+                    </ul>
+                    <p>Send your email to <a href="mailto:tatamiweb@proton.me"
+                            class="email-link">tatamiweb@proton.me</a></p>
+                </div>
+            </div>
+            <div id="history" class="tab-content">
+                <div class="history">
+                    <img src="assets/02.gif" alt="02.gif">
+                    <h2 style="text-align: center;">[ What Are Browser Extensions? ]</h2>
+                    <br>
+                    <p>Extensions are small tools that run inside your browser (like Chrome or Firefox) to add or
+                        improve features. Examples include ad blockers, password managers, or privacy tools.</p>
 
-    <!-- Logo de la empresa -->
-    <div class="logo-container" onclick="animateLogo()">
-        <img src="logo.png" alt="Logo de la Empresa" class="logo">
+                    <h3>[ Apps vs. Extensions ]</h3>
+                    <br>
+                    <ul>
+                        <li>📌 <strong>Scope:</strong> Apps are standalone programs. Extensions depend on browsers to
+                            work.</li>
+                        <br>
+                        <li>⚙️ <strong>Installation:</strong> Apps are installed on your device. Extensions are added
+                            directly to browsers.</li>
+                        <br>
+                        <li>🧩 <strong>Functionality:</strong> Apps do many things. Extensions focus on one simple task.
+                        </li>
+                    </ul>
+                    <br>
+                    <h3>[ Why Use Extensions? ]</h3>
+                    <br>
+                    <ul>
+                        <li>🎯 <strong>Customization:</strong> Personalize your browser to match your workflow.</li>
+                        <br>
+                        <li>⚡ <strong>Efficiency:</strong> Automate tasks, block distractions, and boost speed.</li>
+                        <br>
+                        <li>🔒 <strong>Security:</strong> Protect your data with privacy-focused tools.</li>
+                        <br>
+                        <li>🧼 <strong>Simplicity:</strong> Install and remove in seconds — no system impact.</li>
+                    </ul>
+                    <br>
+                    <p>Responsible Internet use includes protecting your passwords, avoiding untrustworthy sites, and
+                        keeping your software updated. Extensions can be key allies in this process. Reporting errors in
+                        projects, like those on this page, helps improve the security and quality of the software we
+                        use.</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer" id="footer">
+            Developed by Tatami-web | Updated in 2025 | Version 1.0.0
+        </div>
     </div>
-    <!-- Sección de descripción -->
-    <section id="servicios" class="description">
-    <!-- Enlaces relevantes -->
-        <nav class="links">
-            <p>Questions or suggestions to email</p>
-
-            <h2>Links</h2>
-            <a href="mailto:tatamiweb@proton.me">Email @Tatami</a>
-            <a href="https://www.uptodown.com/developer/tatami"target="_blank" rel="noopener noreferrer">Uptodown</a>   
-            <a href="https://addons.mozilla.org/es/firefox/user/18240851/?utm_source=firefox-browser&utm_medium=firefox-browser&utm_content=addons-manager-user-profile-link"
-                target="_blank" rel="noopener noreferrer">Firefox Add-ons</a>
-        </nav>
-    </section>
-
-    <!-- Sección de texto adicional -->
-    <footer>
-            <a class="footer-a" href="#">@Tatami</a>
-    </footer>
-
     <script src="script.js"></script>
 </body>
 

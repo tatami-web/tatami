@@ -1,43 +1,38 @@
-// Selección del logo y el footer
-const logo = document.querySelector('.logo');
-const footer = document.querySelector('footer');
+        function showTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            const tabs = document.querySelectorAll('.tab');
 
-// Función para animar el logo con una rotación extendida
-function animateLogo() {
-    logo.style.transform = "scale(1.2) rotate(720deg)"; // Aumenta el tamaño y rota más de 360 grados
-    setTimeout(() => {
-        logo.style.transform = "scale(1) rotate(0deg)"; // Restablece el tamaño y la rotación
-    }, 600); // Duración de la animación
-}
+            contents.forEach(content => {
+                content.style.opacity = '0';
+            });
 
-// Detecta si el dispositivo es táctil para definir el evento de interacción
-const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
 
-// Asigna eventos según el tipo de dispositivo
-if (isTouchDevice) {
-    logo.addEventListener('touchstart', animateLogo); // Táctil: toca para animar
-} else {
-    logo.addEventListener('mouseover', animateLogo); // Mouse: pasa para animar
-}
+            const selectedContent = document.getElementById(tabId);
+            setTimeout(() => {
+                contents.forEach(content => {
+                    content.style.display = 'none';
+                });
+                selectedContent.style.display = 'block';
+                selectedContent.style.opacity = '1';
+                // Reset scroll position to top
+                document.querySelector('.content-wrapper').scrollTop = 0;
+                // Show footer on tab change
+                document.getElementById('footer').classList.remove('hidden');
+            }, 300);
 
-// Variables para manejar el estado del scroll
-let lastScrollPosition = 0;
+            document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+        }
 
-// Función para manejar el scroll y ocultar/mostrar el footer
-function handleScroll() {
-    const currentScrollPosition = window.scrollY; // Obtiene la posición actual del scroll
-
-    if (currentScrollPosition > lastScrollPosition) {
-        // Si el usuario hace scroll hacia abajo, oculta el footer
-        footer.classList.add('hidden');
-    } else {
-        // Si el usuario hace scroll hacia arriba, muestra el footer
-        footer.classList.remove('hidden');
-    }
-
-    // Actualiza la posición previa del scroll
-    lastScrollPosition = currentScrollPosition;
-}
-
-// Escucha el evento de scroll en la ventana
-window.addEventListener('scroll', handleScroll);
+        // Hide footer when scrolling down
+        document.querySelector('.content-wrapper').addEventListener('scroll', function() {
+            const footer = document.getElementById('footer');
+            if (this.scrollTop > 50) { // Hide after scrolling 50px
+                footer.classList.add('hidden');
+            } else {
+                footer.classList.remove('hidden');
+            }
+        });
+  
